@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pumpkin Bread</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $('.Mnav-content h2').click(function(){
+              $('.Mnav-content ul').slideToggle();
+          })
+      })
+  </script>
+    <style>
+   
+body {
+  background-color: black;
+  text-decoration-color: aliceblue;
+}
+
+header {
+  color: wheat;
+}
+
+main {
+  color: wheat;
+}
+
+.cdf {
+  display: block;
+  color: white;
+  text-align: right;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.text-align {
+  width: 100%;
+  position: fixed;
+  display: flex;
+}
+
+.Hyderabadi-navigation {
+  list-style-type: square;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.Hyderabadi-content {
+  height: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: right;
+  justify-content: space-between;
+}
+
+a {
+  float: left;
+}
+
+.a {
+  display: block;
+  color: white;
+  text-align: right;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav .logo a {
+  display: block;
+  color: orange;
+  text-align: right;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.a:hover {
+  background-color: #111;
+  color: orange;
+}
+
+.a-logo:hover {
+  color: white;
+  background-color: #111;
+}
+
+.top {
+  background-color: rgb(134, 104, 7);
+  width: 100%;
+  height: 120px;
+  margin-top: 50px;
+  align-items: center;
+  position: relative;
+}
+
+.top-font {
+  padding-top: 35px;
+  margin-top: 40px;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* MEDIA QUERIES */
+
+/* For tablets and devices with screen widths 768px and below */
+@media (max-width: 768px) {
+  .Hyderabadi-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .a {
+    text-align: center;
+  }
+
+  .top {
+    height: 100px;
+  }
+
+  .top-font {
+    font-size: 1.5em;
+  }
+
+  img {
+    width: 90%; /* Shrink the image */
+    margin: 0 auto;
+  }
+
+  video {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  h1, h3, h4 {
+    text-align: center;
+  }
+}
+
+/* For small devices, 425px and below */
+@media (max-width: 425px) {
+  .Hyderabadi-content {
+    flex-direction: column;
+  }
+
+  .top {
+    height: 90px;
+  }
+
+  .top-font {
+    font-size: 1.3em;
+  }
+
+  img, video {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .a {
+    font-size: 1em;
+    padding: 10px;
+  }
+  
+  h1, h3, h4 {
+    font-size: 1.2em;
+  }
+
+  iframe {
+    width: 85%;
+    height: auto;
+  }
+}
+
+/* For extra small devices, 375px */
+@media (max-width: 375px) {
+  .top {
+    height: 80px;
+  }
+
+  .top-font {
+    font-size: 1.2em;
+  }
+
+  img, video {
+    width: 80%;
+  }
+
+  .a {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  h1, h3, h4 {
+    font-size: 1.1em;
+  }
+
+  iframe {
+    width: 80%;
+    height: auto;
+  }
+}
+
+/* For very small devices, 320px */
+@media (max-width: 320px) {
+  .top {
+    height: 70px;
+  }
+
+  .top-font {
+    font-size: 0.8em;
+  }
+
+  img, video {
+    width: 75%;
+    height: 90px;
+  }
+  .photo{
+    height: 160px;
+  }
+
+  .a {
+    font-size: 0.6em;
+    padding: 6px;
+  }
+
+  h1, h3, h4 {
+    font-size: 0.8em;
+  }
+
+  iframe {
+    width: 75%;
+    height: auto;
+  }
+  .image{
+    width: 320px;
+    height: 290px;
+  }
+}
+
+
+*{box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+.Mnav-content{
+    display: none;
+}
+.Mnav-content ul li{
+    width: 100%;
+    display: block;
+}
+.Mnav-content ul li a{
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+
+}
+.Mnav-content h2{
+    margin: 0;
+    padding: 10px;
+    background-color: #ddd;
+}
+@media screen and (max-width:768px){
+    .Hyderabadi-navigation{
+        display: none;
+    }
+    .cont{
+        width: 100%;
+    }
+    .Mnav-content{
+        display: block;
+    }
+    nav ul{
+        display: none;
+    }
+    .contact-container{
+        margin-top: -40px;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top">
+    <center><h1 class="top-font"> <strong > Pumpkin Bread</strong> </h1></center>
+    
+  </div>
+    <header>
+      <nav class="Hyderabadi-navigation">        
+        <div id="Hyderabadi-content">
+            <div class="logo">
+                <a class="a-logo" href="/Pages/index.html"><b> Pumpkin Bread</b></a>
+            </div>
+            <div class="div-link">
+                <a class="a" href="#">About</a>
+                <a class="a" href="#Ingredients">Ingredients</a>
+                <a class="a" href="#Preparation">Preparation</a>
+                <a class="a" href="#Directions">Reciepe</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="Mnavigation">
+      <div class="Mnav-content">
+          <h2>menu</h2>
+          <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#Ingredients">Ingredients</a></li>
+             <li> <a href="#Preparation">Preparation</a></li>
+             <li> <a href="#Directions">Reciepe</a></li>
+          </ul>
+          </div>
+  </nav>
+    <br /><br />
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img class="photo"  src="/assets/images/pumking.jpg" style="width:100%">
+        <div class="text">Caption Text</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img class="photo"  src="/assets/images/pumking1.jpg" style="width:100%">
+        <div class="text">Caption Two</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img class="photo"  src="/assets/images/pumking2.jpg" style="width:100%">
+        <div class="text">Caption Three</div>
+      </div>
+      
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+      </div>
+      
+      <script>
+      let slideIndex = 0;
+      showSlides();
+      
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+      </script>
+  </header>
+
+  <main>
+<br></br>
+
+    <strong><h3> Pumpkin Bread</h3></strong>
+ 
+    <ul>
+      <li>Level: Easy</li>
+      <li>Total: 40 min</li>
+      <li>Active: 40 min</li>
+      <li>Yield: 8 to 10 servings</li>
+     <h4>Active: 40 min</h4> 
+    </ul>
+
+    <nav>
+      <p><h4>Buttery grilled corn is one of our favorite summer dinner staples. It’s even better with a trio of seasoned butters—think Cajun, miso and green goddess—served in shallow bowls so everyone at the table can roll an ear in their favorite flavor. Make the butters ahead of time, then pull them out of the refrigerator right before serving. It's hard to beat homemade Cajun seasoning, but feel free to use store-bought if you’re short on time. If you have leftover butter, serve it with your favorite vegetables, from boiled baby potatoes to grilled asparagus, or use it to top grilled steak or fish.</h4></p>
+      <a href="./../Exercises/Exercise_01.html"><img
+      src="/assets/images/icons8-facebook-50.png"
+      style="width: 50px; height: 50px"
+      alt="car image"
+    /></a>
+    <a href="./../Exercises/Exercise_01.html"><img
+      src="/assets/images/icons8-pinterest-50.png"
+      style="width: 50px; height: 50px"
+      alt="car image"
+    /></a>
+    <a href="./../Exercises/Exercise_01.html"><img
+      src="/assets/images/icons8-prequel-app-50.png"
+      style="width: 50px; height: 50px"
+      alt="car image"
+    /></a>
+    <a href="./../Exercises/Exercise_01.html"><img
+      src="/assets/images/icons8-whatsapp-50.png"
+      style="width: 50px; height: 50px"
+      alt="car image"
+    /></a>
+  </nav>
+    
+    
+     
+   
+    <br /><br />
+    <br>
+    <br>
+   <center> <strong><h2>Watch Tutorial</h2></strong></center>
+    <br />
+   <center> <video id="Preparation"
+      src="/assets/videos/Amazing_Pumpkin_Bread(480p).k"
+      style="width: 500px; height: 300px"
+      controls
+    ></video></center>
+    <section id="Ingredients" >
+    <div>
+   <h3> </h3>
+   <div id="Hyderabadi-ingredients">
+   <h4> Cajun Butter:</h4>
+    <ol>
+   <li> 2 sticks (1 cup) unsalted butter, at room temperature</li>
+    
+   <li> 2 teaspoons paprika</li>
+    
+   <li> 1 teaspoon cayenne pepper</li>
+    
+   <li> 1 teaspoon garlic powder</li>
+    
+   <li>1 teaspoon onion powder</li>
+    
+    <li>1 teaspoon dried oregano</li>
+    
+    <li> 1/2 teaspoon dried thyme</li>
+    
+      <li> Kosher salt and freshly ground black pepper
+    Miso Butter:</li>
+    
+    <li> 2 sticks (1 cup) unsalted butter, at room temperature</li>
+    
+      <li> 3 tablespoons white miso</li>
+    
+        <li> 1 teaspoon crushed red pepper flakes</li>
+    
+          <li> 1 teaspoon rice wine vinegar</li>
+    
+            <li>Finely grated zest and juice of 1 lime</li>
+    
+              <li> Kosher salt</li>
+    
+                <li>  Toasted sesame seeds, for serving
+    Green Goddess Butter:</li>
+    
+    <li> 2 sticks (1 cup) unsalted butter, at room temperature</li>
+    
+      <li> 1/2 cup lightly packed fresh cilantro leaves</li>
+    
+        <li> 1/2 cup lightly packed fresh parsley leaves</li>
+    
+          <li> 2 scallions, roughly chopped</li>
+    
+            <li>1 clove garlic, minced</li>
+    
+              <li> Finely grated zest and juice of 1 lemon</li>
+    
+                <li> Kosher salt and freshly ground black pepper
+    Grilled Corn:</li>
+    
+    <li> Vegetable or canola oil, for the grill grates</li>
+    
+      <li> 8 medium ears corn, shucked and cut in half crosswise</li>
+    
+  </ol>
+</div>
+</div>
+</section>
+<section>
+  <h2 id="Directions">
+    Directions
+  </h2>
+  <ol>
+    <li><h4 >For the Cajun butter: Mix the butter, paprika, cayenne, garlic powder, onion powder, oregano, thyme, 2 teaspoons salt and 1/2 teaspoon black pepper in a medium bowl until well combined. Transfer to a shallow serving dish or ramekin. Cover and refrigerate until ready to serve.</h4></li>
+    <br></br>
+    <li><h4>For the miso butter: Mix the butter, miso, crushed red pepper flakes, rice wine vinegar, lime zest and juice and 1 teaspoon salt in a medium bowl until well combined. Transfer to a shallow serving dish or ramekin; top with a sprinkle of toasted sesame seeds. Cover and refrigerate until ready to serve.</h4></li>
+    <br></br>
+    <li><h4>For the green goddess butter: Add the butter, cilantro, parsley, scallions, garlic, lemon zest and juice, 2 teaspoons salt and 1/2 teaspoon black pepper to a food processor. Puree, stopping and scraping down the sides as needed, until very smooth and combined. Transfer to a shallow serving dish or ramekin. Cover and refrigerate until ready to serve.</h4></li>
+    <br></br>
+    <li><h4>For the grilled corn: Prepare a grill for medium-high heat. Brush the grates with a little oil.</h4></li>
+    <br></br>
+    <li><h4>Grill the corn, turning occasionally, until lightly charred and tender, 8 to 10 minutes. Serve hot on a large wooden board or platter with the Cajun butter, miso butter and green goddess butter.</h4></li>
+  </ol>
+ <h2> Cook’s Note</h2>
+<strong> all 3 butters, covered, in the refrigerator for up to 4 days. Alternatively, freeze for up to 1 month.</strong>
+    
+</section>
+    <br /><br />
+   <center><h2><strong>For More Information</strong></h2></center> 
+    <br /><br />
+    <center><iframe class="video"
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/lTxn2BuqyzU?si=eZRpb4DjMf3JtX-a"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </center>
+    
+    <br>
+   <center> <h1>Thank You!</h1>
+   </center>
+   <br>
+   <center>
+    <h2>Visit Our Tutorial And Create It Your Self</h2>
+   </center>
+  </section>
+  </main>
+  </body>
+</html>
